@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #FFD700;
+  --navy: #1a1f36;
+  --marble: #FAFAFA;
+  --bronze: #CD7F32;
+  --silver: #C0C0C0;
+}
+
+body {
+  color: var(--navy);
+  background: var(--marble);
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Gold shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    #FFE135 50%,
+    var(--gold) 100%
+  );
+  background-size: 200px 100%;
+  animation: shimmer 2s infinite linear;
+}
