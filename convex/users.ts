@@ -34,7 +34,7 @@ export const createUser = mutation({
       userId,
       action: "user_created",
       targetType: "user",
-      targetId: userId,
+      targetId: userId.toString(),
       timestamp: Date.now(),
     });
 
