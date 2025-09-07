@@ -184,8 +184,9 @@ h1, h2, h3, h4, h5, h6 {
     var(--gold) 100%
   );
   background-size: 300% 300%;
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
+  color: var(--fire-red);
   -webkit-text-fill-color: transparent;
   animation: flame-dance 3s ease infinite;
   font-weight: bold;
