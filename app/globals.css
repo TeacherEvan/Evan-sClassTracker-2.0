@@ -8,12 +8,23 @@
   --marble: #FAFAFA;
   --bronze: #CD7F32;
   --silver: #C0C0C0;
+  
+  /* Fire theme colors */
+  --fire-red: #FF4500;
+  --fire-orange: #FF6B35;
+  --fire-yellow: #FFA500;
+  --fire-deep-red: #8B0000;
 }
 
 body {
   color: var(--navy);
   background: var(--marble);
   font-family: 'Inter', sans-serif;
+  /* Add subtle fire background */
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 69, 0, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 165, 0, 0.02) 0%, transparent 50%);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -39,4 +50,144 @@ h1, h2, h3, h4, h5, h6 {
   );
   background-size: 200px 100%;
   animation: shimmer 2s infinite linear;
+}
+
+/* Fire background animations */
+@keyframes fire-flicker {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    opacity: 0.9;
+    transform: scale(1.05) rotate(1deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.95) rotate(-1deg);
+  }
+  75% {
+    opacity: 0.85;
+    transform: scale(1.02) rotate(0.5deg);
+  }
+}
+
+@keyframes fire-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+  }
+}
+
+@keyframes flame-dance {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Fire-themed background classes */
+.fire-background {
+  background: linear-gradient(
+    45deg,
+    var(--fire-deep-red) 0%,
+    var(--fire-red) 25%,
+    var(--fire-orange) 50%,
+    var(--fire-yellow) 75%,
+    var(--gold) 100%
+  );
+  background-size: 400% 400%;
+  animation: flame-dance 3s ease infinite;
+}
+
+.fire-background-subtle {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 69, 0, 0.1) 0%,
+    rgba(255, 107, 53, 0.05) 50%,
+    rgba(255, 215, 0, 0.1) 100%
+  );
+}
+
+.fire-glow {
+  animation: fire-glow 2s ease-in-out infinite alternate;
+}
+
+.fire-flicker {
+  animation: fire-flicker 1.5s ease-in-out infinite;
+}
+
+/* Fire particle effect */
+.fire-particles {
+  position: relative;
+  overflow: hidden;
+}
+
+.fire-particles::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, var(--fire-orange) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, var(--fire-red) 1px, transparent 1px),
+    radial-gradient(circle at 50% 10%, var(--fire-yellow) 1px, transparent 1px);
+  background-size: 50px 50px, 75px 75px, 100px 100px;
+  animation: fire-flicker 3s ease-in-out infinite;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Fire border effect */
+.fire-border {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--marble), var(--marble)) padding-box,
+              linear-gradient(45deg, var(--fire-red), var(--fire-orange), var(--fire-yellow)) border-box;
+  animation: fire-glow 2s ease-in-out infinite alternate;
+}
+
+/* Enhanced button with fire theme */
+.fire-button {
+  background: linear-gradient(
+    45deg,
+    var(--fire-red) 0%,
+    var(--fire-orange) 50%,
+    var(--fire-yellow) 100%
+  );
+  background-size: 200% 200%;
+  animation: flame-dance 2s ease infinite;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.fire-button:hover {
+  animation-duration: 1s;
+  box-shadow: 0 6px 20px rgba(255, 69, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Fire text effect */
+.fire-text {
+  background: linear-gradient(
+    45deg,
+    var(--fire-red) 0%,
+    var(--fire-orange) 30%,
+    var(--fire-yellow) 60%,
+    var(--gold) 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: var(--fire-red);
+  -webkit-text-fill-color: transparent;
+  animation: flame-dance 3s ease infinite;
+  font-weight: bold;
 }
