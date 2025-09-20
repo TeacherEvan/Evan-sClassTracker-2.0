@@ -26,7 +26,8 @@ describe('CRDA Workflow Configuration', () => {
     // Verify all required permissions are present
     expect(crdaScanJob.permissions['contents']).toBe('read');
     expect(crdaScanJob.permissions['security-events']).toBe('write');
-    expect(crdaScanJob.permissions['pull-requests']).toBe('read');
+    expect(crdaScanJob.permissions['pull-requests']).toBe('write');
+    expect(crdaScanJob.permissions['issues']).toBe('write');
   });
 
   test('workflow is configured for pull_request_target events', () => {
